@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import logoImage from "../../../public/logo.png";
 
 export function Navbar() {
   return (
@@ -17,7 +18,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-2">
           {/* Logo placeholder - assuming user will save it to /logo.png */}
           <div className="bg-white p-1 rounded-sm flex items-center justify-center">
-            <Image src="/logo.png" alt="LaTaVi Logo" width={100} height={40} className="h-10 w-auto object-contain" />
+            <Image src={logoImage} alt="LaTaVi Logo" width={100} height={40} className="h-10 w-auto object-contain" />
           </div>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium font-mono">
