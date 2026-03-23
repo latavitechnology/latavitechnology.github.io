@@ -32,7 +32,7 @@ export function Contact() {
     console.log("Submitting form...", Object.fromEntries(formData.entries()));
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/thetechnologycompany77@gmail.com", {
+      const res = await fetch("https://formsubmit.co/ajax/246a4985f910688dba417d7154e7a358", {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
