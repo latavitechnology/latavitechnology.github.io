@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +8,41 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { motion } from "framer-motion";
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus("idle");
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // For real usage: Replace 'your-email@latavi.com' with your actual email!
+      const res = await fetch("https://formsubmit.co/ajax/your-email@latavi.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="contact" className="py-24 bg-background relative border-t border-white/10">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -30,20 +66,34 @@ export function Contact() {
             className="bg-[#050505] p-8 md:p-10 rounded-2xl border border-white/10 shadow-2xl relative"
           >
             {/* Glow effect on hover can be done via class or just static focus glow on inputs */}
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {status === "success" && (
+                <div className="bg-green-500/20 text-green-400 p-4 rounded-md border border-green-500/50 text-sm font-mono">
+                  MESSAGE_RECEIVED. An engineer will be in touch shortly.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="bg-red-500/20 text-red-400 p-4 rounded-md border border-red-500/50 text-sm font-mono">
+                  ERROR_SUBMITTING_FORM. Please try again later.
+                </div>
+              )}
+              
+              {/* FormSubmit.co requires this hidden field to prevent captcha during AJAX if desired, or honeypot */}
+              <input type="hidden" name="_captcha" value="false" />
+
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Full Name</label>
-                <Input placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
+                <Input name="name" required placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
               </div>
               
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Corporate Email</label>
-                <Input type="email" placeholder="john@company.com" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
+                <Input type="email" name="email" required placeholder="john@company.com" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Cloud Platform</label>
-                <Select>
+                <Select name="platform">
                   <SelectTrigger className="bg-black/50 border-white/10 focus:ring-azure h-12 rounded-none text-white">
                     <SelectValue placeholder="Select Platform" />
                   </SelectTrigger>
@@ -57,11 +107,11 @@ export function Contact() {
 
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Project Scope</label>
-                <Textarea placeholder="Tell us about your infrastructure needs..." className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none min-h-[140px] text-white transition-all shadow-none" />
+                <Textarea name="scope" required placeholder="Tell us about your infrastructure needs..." className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none min-h-[140px] text-white transition-all shadow-none" />
               </div>
 
-              <Button className="w-full bg-azure hover:bg-[#0066CC] text-white rounded-none border border-azure/50 h-14 font-mono tracking-[0.1em] transition-all duration-300 shadow-[0_0_15px_rgba(0,127,255,0.3)] hover:shadow-[0_0_25px_rgba(0,127,255,0.5)]">
-                SUBMIT_REQUEST
+              <Button disabled={isSubmitting} className="w-full bg-azure hover:bg-[#0066CC] text-white rounded-none border border-azure/50 h-14 font-mono tracking-[0.1em] transition-all duration-300 shadow-[0_0_15px_rgba(0,127,255,0.3)] hover:shadow-[0_0_25px_rgba(0,127,255,0.5)]">
+                {isSubmitting ? "PROCESSING..." : "SUBMIT_REQUEST"}
               </Button>
             </form>
           </motion.div>
