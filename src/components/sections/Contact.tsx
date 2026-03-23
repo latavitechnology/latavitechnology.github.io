@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,34 +9,48 @@ import { motion } from "framer-motion";
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "validation_error">("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function handleSubmit(e?: React.FormEvent<HTMLFormElement>) {
+    if (e) e.preventDefault();
+    if (!formRef.current) return;
+
+    // Manual validation check to bypass silent failures on hidden components
+    const formData = new FormData(formRef.current);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const scope = formData.get("scope") as string;
+
+    if (!name || !email || !scope) {
+      setStatus("validation_error");
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus("idle");
-
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    console.log("Submitting form...", Object.fromEntries(formData.entries()));
 
     try {
-      // For real usage: Replace 'your-email@latavi.com' with your actual email!
       const res = await fetch("https://formsubmit.co/ajax/thetechnologycompany77@gmail.com", {
         method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(Object.fromEntries(formData.entries()))
       });
 
       if (res.ok) {
+        console.log("Success!");
         setStatus("success");
-        e.currentTarget.reset();
+        formRef.current.reset();
       } else {
+        console.error("FormSubmit Error", await res.text());
         setStatus("error");
       }
     } catch (err) {
+      console.error("Fetch Exception:", err);
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -66,7 +80,7 @@ export function Contact() {
             className="bg-[#050505] p-8 md:p-10 rounded-2xl border border-white/10 shadow-2xl relative"
           >
             {/* Glow effect on hover can be done via class or just static focus glow on inputs */}
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit} noValidate>
               {status === "success" && (
                 <div className="bg-green-500/20 text-green-400 p-4 rounded-md border border-green-500/50 text-sm font-mono">
                   MESSAGE_RECEIVED. An engineer will be in touch shortly.
@@ -75,6 +89,11 @@ export function Contact() {
               {status === "error" && (
                 <div className="bg-red-500/20 text-red-400 p-4 rounded-md border border-red-500/50 text-sm font-mono">
                   ERROR_SUBMITTING_FORM. Please try again later.
+                </div>
+              )}
+              {status === "validation_error" && (
+                <div className="bg-aws/20 text-aws p-4 rounded-md border border-aws/50 text-sm font-mono">
+                  PLEASE_FILL_REQUIRED_FIELDS. Name, Email, and Scope are necessary.
                 </div>
               )}
 
@@ -110,7 +129,7 @@ export function Contact() {
                 <Textarea name="scope" required placeholder="Tell us about your infrastructure needs..." className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none min-h-[140px] text-white transition-all shadow-none" />
               </div>
 
-              <Button disabled={isSubmitting} className="w-full bg-azure hover:bg-[#0066CC] text-white rounded-none border border-azure/50 h-14 font-mono tracking-[0.1em] transition-all duration-300 shadow-[0_0_15px_rgba(0,127,255,0.3)] hover:shadow-[0_0_25px_rgba(0,127,255,0.5)]">
+              <Button type="button" onClick={() => handleSubmit()} disabled={isSubmitting} className="w-full bg-azure hover:bg-[#0066CC] text-white rounded-none border border-azure/50 h-14 font-mono tracking-[0.1em] transition-all duration-300 shadow-[0_0_15px_rgba(0,127,255,0.3)] hover:shadow-[0_0_25px_rgba(0,127,255,0.5)]">
                 {isSubmitting ? "PROCESSING..." : "SUBMIT_REQUEST"}
               </Button>
             </form>
