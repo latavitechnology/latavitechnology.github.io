@@ -21,11 +21,11 @@ export function Contact() {
 
     try {
       // For real usage: Replace 'your-email@latavi.com' with your actual email!
-      const res = await fetch("https://formsubmit.co/ajax/your-email@latavi.com", {
+      const res = await fetch("https://formsubmit.co/ajax/thetechnologycompany77@gmail.com", {
         method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(data)
       });
@@ -58,7 +58,7 @@ export function Contact() {
             </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -77,7 +77,7 @@ export function Contact() {
                   ERROR_SUBMITTING_FORM. Please try again later.
                 </div>
               )}
-              
+
               {/* FormSubmit.co requires this hidden field to prevent captcha during AJAX if desired, or honeypot */}
               <input type="hidden" name="_captcha" value="false" />
 
@@ -85,7 +85,7 @@ export function Contact() {
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Full Name</label>
                 <Input name="name" required placeholder="John Doe" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Corporate Email</label>
                 <Input type="email" name="email" required placeholder="john@company.com" className="bg-black/50 border-white/10 focus-visible:ring-azure focus-visible:border-azure rounded-none h-12 text-white transition-all shadow-none" />
