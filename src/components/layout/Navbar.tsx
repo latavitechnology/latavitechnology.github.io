@@ -17,9 +17,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           {/* Logo placeholder - assuming user will save it to /logo.png */}
-          <div className="bg-slate-900 p-1 rounded-sm flex items-center justify-center">
-            <Image src={logoImage} alt="LaTaVi Logo" width={100} height={40} className="h-10 w-auto object-contain" />
-          </div>
+          <Image src={logoImage} alt="LaTaVi Logo" width={180} height={60} className="h-14 w-auto object-contain" priority />
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium font-mono">
           <Link href="#services" className="text-slate-600 hover:text-azure transition-colors">SERVICES</Link>
