@@ -97,8 +97,11 @@ export function Contact() {
                 </div>
               )}
 
-              {/* FormSubmit.co requires this hidden field to prevent captcha during AJAX if desired, or honeypot */}
+              {/* FormSubmit.co requires this hidden field to prevent captcha during AJAX if desired. */}
               <input type="hidden" name="_captcha" value="false" />
+              
+              {/* Invisible HoneyPot field to catch spam bots without bothering real users */}
+              <input type="text" name="_honey" style={{ display: "none" }} />
 
               <div className="space-y-2">
                 <label className="text-xs font-mono text-muted-foreground uppercase tracking-widest">Full Name</label>
