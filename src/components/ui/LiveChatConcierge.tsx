@@ -16,24 +16,24 @@ export function LiveChatConcierge() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "linear" }}
-            className="mb-4 w-80 bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-4 rounded-xl shadow-2xl"
+            className="mb-4 w-80 bg-white/90 backdrop-blur-xl border border-slate-200 p-4 rounded-xl shadow-2xl"
           >
-            <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-2">
+            <div className="flex justify-between items-center mb-4 border-b border-slate-100 pb-2">
               <h3 className="font-mono text-azure text-sm font-semibold">Concierge</h3>
-              <button onClick={() => setIsOpen(false)} className="text-muted-foreground hover:text-white transition-colors">
+              <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-900 transition-colors">
                 <X size={16} />
               </button>
             </div>
-            <div className="bg-black/50 rounded-md p-3 mb-4 text-sm font-sans border border-white/5">
-              <p className="text-gray-300">How can we help you scale your environment today?</p>
+            <div className="bg-slate-50 rounded-md p-3 mb-4 text-sm font-sans border border-slate-100 shadow-inner">
+              <p className="text-slate-700">How can we help you scale your environment today?</p>
             </div>
             <div className="flex gap-2">
               <input 
                 type="text" 
                 placeholder="Type your message..." 
-                className="flex-1 bg-black/50 border border-white/10 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-azure transition-colors text-white"
+                className="flex-1 bg-white border border-slate-200 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-azure transition-colors text-slate-900"
               />
-              <button className="bg-azure hover:bg-azure/80 text-white px-3 py-2 text-sm font-medium rounded-md transition-colors">
+              <button className="bg-azure hover:bg-azure/80 text-white px-3 py-2 text-sm font-medium rounded-md transition-colors shadow-sm shadow-azure/20">
                 Send
               </button>
             </div>

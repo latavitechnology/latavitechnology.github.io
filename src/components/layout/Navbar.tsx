@@ -12,20 +12,20 @@ export function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3, ease: "linear" }}
-      className="fixed top-0 w-full z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200"
     >
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           {/* Logo placeholder - assuming user will save it to /logo.png */}
-          <div className="bg-white p-1 rounded-sm flex items-center justify-center">
+          <div className="bg-slate-900 p-1 rounded-sm flex items-center justify-center">
             <Image src={logoImage} alt="LaTaVi Logo" width={100} height={40} className="h-10 w-auto object-contain" />
           </div>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium font-mono">
-          <Link href="#services" className="hover:text-azure transition-colors">SERVICES</Link>
-          <Link href="#lab" className="hover:text-aws transition-colors">THE_LAB</Link>
-          <Link href="#metrics" className="hover:text-azure transition-colors">METRICS</Link>
-          <Link href="#about" className="hover:text-white transition-colors">ABOUT</Link>
+          <Link href="#services" className="text-slate-600 hover:text-azure transition-colors">SERVICES</Link>
+          <Link href="#lab" className="text-slate-600 hover:text-aws transition-colors">THE_LAB</Link>
+          <Link href="#metrics" className="text-slate-600 hover:text-azure transition-colors">METRICS</Link>
+          <Link href="#about" className="text-slate-600 hover:text-slate-900 transition-colors">ABOUT</Link>
         </div>
         <Button className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono">
           GET_STARTED

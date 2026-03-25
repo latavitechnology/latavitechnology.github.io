@@ -11,9 +11,9 @@ const partners = [
 
 export function Partners() {
   return (
-    <section className="py-24 border-y border-white/10 bg-black/50">
+    <section className="py-24 border-y border-slate-200 bg-white shadow-sm">
       <div className="container mx-auto px-6 text-center">
-        <p className="text-sm font-mono text-muted-foreground mb-12 uppercase tracking-[0.2em]">Global Expertise & Partners</p>
+        <p className="text-sm font-mono text-slate-500 mb-12 uppercase tracking-[0.2em]">Global Expertise & Partners</p>
         <div className="flex flex-wrap justify-center gap-16 md:gap-32 opacity-80">
           {partners.map((partner, i) => (
             <motion.div

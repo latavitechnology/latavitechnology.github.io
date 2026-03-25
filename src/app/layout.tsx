@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} dark antialiased h-full`}
+      className={`${inter.variable} ${jetbrainsMono.variable} antialiased h-full`}
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         <Navbar />
