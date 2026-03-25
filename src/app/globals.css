@@ -51,7 +51,8 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
+  /* A mild, premium icy-slate background that perfectly complements the Azure branding */
+  --background: #F4F7FB;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

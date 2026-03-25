@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Metrics() {
   return (
-    <section id="metrics" className="py-24 bg-slate-50 border-y border-slate-200">
+    <section id="metrics" className="py-24 bg-white border-y border-slate-200">
       <div className="container mx-auto px-6">
         <div className="mb-12 text-center">
           <h2 className="text-2xl md:text-4xl font-sans font-bold tracking-tighter text-slate-900">Customer Happiness Experience</h2>

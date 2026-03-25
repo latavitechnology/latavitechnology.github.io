@@ -1,6 +1,6 @@
 export function About() {
   return (
-    <section id="about" className="py-32 bg-slate-50 border-t border-slate-200 relative overflow-hidden shadow-inner">
+    <section id="about" className="py-32 bg-white border-t border-slate-200 relative overflow-hidden shadow-sm">
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-azure/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50 py-12">
+    <footer className="border-t border-slate-200 bg-white py-12">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 className="font-mono text-xl text-azure mb-4">LaTaVi</h3>
