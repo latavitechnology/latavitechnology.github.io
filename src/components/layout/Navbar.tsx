@@ -25,8 +25,8 @@ export function Navbar() {
           <Link href="#metrics" className="text-slate-600 hover:text-azure transition-colors">METRICS</Link>
           <Link href="#about" className="text-slate-600 hover:text-slate-900 transition-colors">ABOUT</Link>
         </div>
-        <Button asChild className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono">
-          <Link href="#contact">GET_STARTED</Link>
+        <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'})} className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono">
+          GET_STARTED
         </Button>
       </div>
     </motion.nav>
