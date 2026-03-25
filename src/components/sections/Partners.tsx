@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const partners = [
   { name: "Microsoft Azure", color: "#007FFF" },
   { name: "Amazon Web Services", color: "#FF9900" },
-  { name: "Cisco", color: "#1BA0D7" },
-  { name: "Fortinet", color: "#C81326" }
+  { name: "AgilizTech", color: "#6366F1" }, // Soft Indigo
+  { name: "Guhatek", color: "#0EA5E9" }     // Sky Blue
 ];
 
 export function Partners() {
