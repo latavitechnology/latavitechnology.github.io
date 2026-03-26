@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export function Footer() {
@@ -14,17 +16,66 @@ export function Footer() {
         <div>
           <h4 className="font-semibold mb-4 font-mono text-slate-900">Platform</h4>
           <ul className="space-y-2 text-sm text-slate-500 font-sans">
-            <li><Link href="/#services" className="hover:text-azure">Microsoft Azure</Link></li>
-            <li><Link href="/#services" className="hover:text-aws">Amazon Web Services</Link></li>
-            <li><Link href="/#services" className="hover:text-slate-900">Cloud Migration</Link></li>
+            <li>
+              <Link 
+                href="/#services" 
+                className="hover:text-azure"
+                onClick={(e) => {
+                  if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Microsoft Azure
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/#services" 
+                className="hover:text-aws"
+                onClick={(e) => {
+                  if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Amazon Web Services
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/#services" 
+                className="hover:text-slate-900"
+                onClick={(e) => {
+                  if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Cloud Migration
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
           <h4 className="font-semibold mb-4 font-mono text-slate-900">Company</h4>
           <ul className="space-y-2 text-sm text-slate-500 font-sans">
-            <li><Link href="/#about" className="hover:text-slate-900">About Us</Link></li>
+            <li><Link href="/#about" className="hover:text-slate-900" onClick={(e) => {
+                  if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+                    e.preventDefault();
+                    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}>About Us</Link></li>
             <li><Link href="/careers" className="hover:text-slate-900">Careers</Link></li>
-            <li><Link href="/#contact" className="hover:text-slate-900">Contact</Link></li>
+            <li><Link href="/#contact" className="hover:text-slate-900" onClick={(e) => {
+                  if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}>Contact</Link></li>
           </ul>
         </div>
         <div>
