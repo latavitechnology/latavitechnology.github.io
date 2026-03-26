@@ -11,7 +11,8 @@ import {
   BarChart3, 
   Scale, 
   Layers,
-  CloudCog
+  CloudCog,
+  Monitor
 } from "lucide-react";
 
 const services = [
@@ -19,6 +20,7 @@ const services = [
   { title: "Security", desc: "Threat Detection & SecOps", icon: ShieldCheck, color: "text-azure" },
   { title: "SRE", desc: "Site Reliability Engineering", icon: Settings, color: "text-slate-600" },
   { title: "DevOps", desc: "CI/CD & Infrastructure as Code", icon: Terminal, color: "text-aws" },
+  { title: "Virtual Desktop", desc: "VDI & Desktop as a Service", icon: Monitor, color: "text-azure" },
   { title: "AI", desc: "Machine Learning & Automation", icon: Cpu, color: "text-azure" },
   { title: "Database", desc: "Managed & Modern Data", icon: Database, color: "text-aws" },
   { title: "FinOps", desc: "Cloud Cost Optimization", icon: BarChart3, color: "text-aws" },
