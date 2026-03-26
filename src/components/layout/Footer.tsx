@@ -14,24 +14,24 @@ export function Footer() {
         <div>
           <h4 className="font-semibold mb-4 font-mono text-slate-900">Platform</h4>
           <ul className="space-y-2 text-sm text-slate-500 font-sans">
-            <li><Link href="#" className="hover:text-azure">Microsoft Azure</Link></li>
-            <li><Link href="#" className="hover:text-aws">Amazon Web Services</Link></li>
-            <li><Link href="#" className="hover:text-slate-900">Cloud Migration</Link></li>
+            <li><Link href="/#services" className="hover:text-azure">Microsoft Azure</Link></li>
+            <li><Link href="/#services" className="hover:text-aws">Amazon Web Services</Link></li>
+            <li><Link href="/#services" className="hover:text-slate-900">Cloud Migration</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-semibold mb-4 font-mono text-slate-900">Company</h4>
           <ul className="space-y-2 text-sm text-slate-500 font-sans">
-            <li><Link href="#" className="hover:text-slate-900">About Us</Link></li>
-            <li><Link href="#" className="hover:text-slate-900">Careers</Link></li>
-            <li><Link href="#" className="hover:text-slate-900">Contact</Link></li>
+            <li><Link href="/#about" className="hover:text-slate-900">About Us</Link></li>
+            <li><Link href="/careers" className="hover:text-slate-900">Careers</Link></li>
+            <li><Link href="/#contact" className="hover:text-slate-900">Contact</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-semibold mb-4 font-mono text-slate-900">Legal</h4>
           <ul className="space-y-2 text-sm text-slate-500 font-sans">
-            <li><Link href="#" className="hover:text-slate-900">Privacy Policy</Link></li>
-            <li><Link href="#" className="hover:text-slate-900">Terms of Service</Link></li>
+            <li><Link href="/privacy-policy" className="hover:text-slate-900">Privacy Policy</Link></li>
+            <li><Link href="/terms-of-service" className="hover:text-slate-900">Terms of Service</Link></li>
           </ul>
         </div>
       </div>

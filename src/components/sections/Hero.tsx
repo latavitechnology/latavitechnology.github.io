@@ -74,7 +74,7 @@ export function Hero() {
             variant="outline" 
             className="w-full sm:w-auto rounded-none border-slate-300 hover:bg-slate-50 text-slate-900 text-base h-14 px-8 font-mono tracking-widest shadow-sm"
           >
-            THE_LAB
+            CLOUD LAB
           </Button>
         </motion.div>
       </div>

@@ -138,6 +138,9 @@ export function CloudLab() {
           <div className="border border-slate-200 bg-slate-50 p-6 rounded-xl flex flex-col justify-between shadow-inner">
              <div>
                 <h3 className="text-2xl font-sans font-bold text-slate-900 mb-2">Free Tools</h3>
+                <p className="text-[10px] text-slate-400 mb-4 font-mono leading-tight uppercase tracking-widest">
+                  [DISCLAIMER: Use at your own risk. Test thoroughly before production use.]
+                </p>
                 <p className="text-sm text-slate-500 mb-8 font-mono">Assess and estimate in seconds.</p>
                 
                 <div className="space-y-4">

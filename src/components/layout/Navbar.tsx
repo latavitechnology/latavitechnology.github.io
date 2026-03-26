@@ -20,12 +20,18 @@ export function Navbar() {
           <Image src={logoImage} alt="LaTaVi Logo" width={300} height={100} className="h-[4.5rem] w-auto object-contain scale-[1.8] origin-left ml-2" priority />
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium font-mono">
-          <Link href="#services" className="text-slate-600 hover:text-azure transition-colors">SERVICES</Link>
-          <Link href="#lab" className="text-slate-600 hover:text-aws transition-colors">THE_LAB</Link>
-          <Link href="#metrics" className="text-slate-600 hover:text-azure transition-colors">METRICS</Link>
-          <Link href="#about" className="text-slate-600 hover:text-slate-900 transition-colors">ABOUT</Link>
+          <Link href="/#services" className="text-slate-600 hover:text-azure transition-colors">SERVICES</Link>
+          <Link href="/#lab" className="text-slate-600 hover:text-aws transition-colors">CLOUD LAB</Link>
+          <Link href="/#metrics" className="text-slate-600 hover:text-azure transition-colors">METRICS</Link>
+          <Link href="/#about" className="text-slate-600 hover:text-slate-900 transition-colors">ABOUT</Link>
         </div>
-        <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'})} className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono cursor-pointer">
+        <Button onClick={() => {
+          if (window.location.pathname !== '/') {
+            window.location.href = '/#contact';
+          } else {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'});
+          }
+        }} className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono cursor-pointer">
           LET'S TALK
         </Button>
       </div>
