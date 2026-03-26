@@ -19,7 +19,7 @@ export function Navbar() {
           href="/" 
           className="flex items-center gap-2"
           onClick={(e) => {
-            if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+            if (window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -33,7 +33,7 @@ export function Navbar() {
             href="/#services" 
             className="text-slate-600 hover:text-azure transition-colors"
             onClick={(e) => {
-              if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+              if (window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
                 e.preventDefault();
                 document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
               }
@@ -45,7 +45,7 @@ export function Navbar() {
             href="/#lab" 
             className="text-slate-600 hover:text-aws transition-colors"
             onClick={(e) => {
-              if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+              if (window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
                 e.preventDefault();
                 document.getElementById('lab')?.scrollIntoView({ behavior: 'smooth' });
               }
@@ -57,7 +57,7 @@ export function Navbar() {
             href="/#metrics" 
             className="text-slate-600 hover:text-azure transition-colors"
             onClick={(e) => {
-              if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+              if (window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
                 e.preventDefault();
                 document.getElementById('metrics')?.scrollIntoView({ behavior: 'smooth' });
               }
@@ -69,7 +69,7 @@ export function Navbar() {
             href="/#about" 
             className="text-slate-600 hover:text-slate-900 transition-colors"
             onClick={(e) => {
-              if (window.location.pathname === '/' || window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
+              if (window.location.pathname === '/latavi' || window.location.pathname === '/latavi/') {
                 e.preventDefault();
                 document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
               }
@@ -79,8 +79,8 @@ export function Navbar() {
           </Link>
         </div>
         <Button onClick={() => {
-          if (window.location.pathname !== '/') {
-            window.location.href = '/#contact';
+          if (window.location.pathname !== '/latavi' && window.location.pathname !== '/latavi/') {
+            window.location.href = '/latavi/#contact';
           } else {
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'});
           }
