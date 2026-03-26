@@ -26,7 +26,7 @@ export function Navbar() {
           <Link href="#about" className="text-slate-600 hover:text-slate-900 transition-colors">ABOUT</Link>
         </div>
         <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth'})} className="bg-azure hover:bg-azure/80 text-white rounded-none border border-azure/50 font-mono cursor-pointer">
-          GET_STARTED
+          LET'S TALK
         </Button>
       </div>
     </motion.nav>
