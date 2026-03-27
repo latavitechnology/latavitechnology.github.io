@@ -35,7 +35,7 @@ export const articles: Article[] = [
           <div className="mt-8 bg-white p-4 rounded-lg border border-slate-200">
              <p className="text-[10px] font-mono text-slate-400 uppercase mb-2">Technical_Lifecycle_Artifact</p>
              <Image 
-                src="/latavi/caf-lifecycle.jpg" 
+                src="/caf-lifecycle.jpg" 
                 alt="CAF Implementation Lifecycle" 
                 width={1200} 
                 height={800} 
